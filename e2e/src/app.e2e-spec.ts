@@ -1,5 +1,6 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, by, element, $ } from 'protractor';
+import { protractor } from 'protractor/built/ptor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -10,7 +11,24 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('lazyLoad app is running!');
+    expect(page.getTitleText()).toEqual('Lazy Loading Demo');
+  });
+
+  it('should find input field', () => {
+    expect(page.getInputField().isDisplayed()).toBeTruthy();
+  });
+
+  it('should not find any photos', () => {
+    expect(page.getPhotoDiv().isPresent()).toBeFalsy();
+  });
+
+  it('should search for images', () => {
+    let field = page.getInputField();
+    field.sendKeys('toads');
+    field.sendKeys(protractor.Key.ENTER);
+    let EC = protractor.ExpectedConditions;
+    browser.wait(EC.visibilityOf($('#photoContainer')), 10000);
+    expect(page.getPhotoDiv().isPresent()).toBeTruthy();
   });
 
   afterEach(async () => {
