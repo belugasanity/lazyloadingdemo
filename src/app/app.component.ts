@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.searchForm = this.fb.group({
-      searchTerms: ['', [Validators.required]]
+      searchTerms: ['goats', [Validators.required]]
     });
     this.searchForm.valueChanges.subscribe();
   }
