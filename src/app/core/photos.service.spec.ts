@@ -20,8 +20,8 @@ describe('PhotosService', () => {
   });
 
   it('should get data back from service', () => {
-    const fixture = TestBed.createComponent(PhotosService);
-    let component = fixture.componentInstance;
-    expect(component.getNaturePhotos('goats')).toContain('photos');
+    service.getNaturePhotos('goats').subscribe(value => {
+      expect(value).toContain('photos');
+    });
   });
 });
