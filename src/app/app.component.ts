@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   title = 'lazyLoad';
-  photos$;
+  photos;
   searchForm: FormGroup;
 
   constructor(
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
 
   doSearch() {
     this.photoService.getNaturePhotos(this.searchForm.value.searchTerms.toLowerCase()).subscribe((data) => {
-      this.photos$ = data;
+      this.photos = data;
     });
   }
 

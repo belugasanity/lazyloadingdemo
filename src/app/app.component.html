@@ -29,8 +29,8 @@
     <input formControlName="searchTerms" type="text" placeholder="Category...">
   </div>
 </form>
-<div id="photoContainer" *ngIf="photos$">
-  <div class="photo" *ngFor="let photo of photos$.photos">
+<div id="photoContainer" *ngIf="photos">
+  <div class="photo" *ngFor="let photo of photos.photos">
     <img src="{{photo.src.large}}">
   </div>
 </div>
