@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ng-lazyload": {
+      "hosting": {
+        "lazyLoad": [
+          "ng-lazyload"
+        ]
+      }
+    }
+  }
+}
